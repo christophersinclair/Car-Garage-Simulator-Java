@@ -12,8 +12,11 @@ public class CarGarageSimulator {
 		Schedule.GetInstance().AddEvent(initialEvent);
 		
 		// Run through the event loop
-		while(Schedule.GetInstance().GetEventQueue().peek() != null) {
+		int time = Schedule.GetInstance().GetTime();
+		// Hardcoded simulation time
+		while(time <= 100000) {
 			Schedule.GetInstance().TakeNextEvent();
+			time = Schedule.GetInstance().GetTime();
 		}
 		
 		
